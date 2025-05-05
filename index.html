@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #00bcd4;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      gap:40px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+    }
+
+    .info-box {
+      background-color: #333;
+      color: white;
+      width: 300px;
+      height: auto;
+      padding: 20px;
+      border-radius:12px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease in out;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-box h2 {
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .info-box p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    .info-box ul {
+        line-height: 1.6;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Explore my projects and skills</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <hr />
+    <p>Hi, I'm Yashaswini, a passionate web developer.</p>
+  </header>
+
+  <section>
+    <div class="info-box" id="skills">
+      <h2>Skills</h2>
+      <p>Here are some of the skills I have acquired:</p>
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Python, C, MATLAB</li>
+        <li>React, Node.js (learning... but vibing)</li>
+      </ul>
+    </div>
+
+    <div class="info-box" id="tools">
+      <h2>Tools I Use</h2>
+      <p>Here are some of the tools I use:</p>
+      <ul>
+        <li>Visual Studio Code</li>
+        <li>GitHub</li>
+        <li>Canva</li>
+        <li>MATLAB and Jupyter Notebook</li>
+      </ul>
+    </div>
+
+    <div class="info-box" id="certifications">
+      <h2>Certifications</h2>
+      <p>Here are some of the certifications I have earned:</p>
+      <ul>
+        <li>Full Stack Web Development from Udemy (ongoing)</li>
+        <li>Signal Processing (B.Tech thing)</li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

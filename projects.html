@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #323131;
+        }
+          #projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+            .project p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #f7f7f7;
+        float: left;
+        }
+        #projects h2 {
+            text-align: center;
+            width: 100%;
+            color: #ffffff;
+            font-size: 2rem;
+        }
+        .project{
+            background-color:rgb(0, 0, 0);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: rgb(178, 195, 210);
+            width: 300px;
+            text-align: center;
+        }
+        .project:hover {
+         transform: translateY(-5px);
+         }
+
+        .project h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+        color:red;
+        }
+
+        .project a {
+        display: inline-block;
+        margin-top: 10px;
+        color: #4ea1f3;
+        text-decoration: none;
+        font-weight: bold;
+        }
+
+        .project a:hover {
+        text-decoration: underline;
+        }
+        img {
+        max-width:50px;
+        max-height: 50px;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        float: right;
+        margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project">
+            <h3>Dice Game</h3>
+            <img src="https://m.media-amazon.com/images/I/71r-jJbLMOL._AC_UF1000,1000_QL80_.jpg" alt="Dice Game" >
+            <p>this is a simple dice game where you can roll two dice and see the result.</p>
+            <p>Click the button to roll the dice and see the result.</p>
+            <a href="C:\Users\YASHASWINI\New folder\portfolio\projects.html">View Project</a>
+        </div>        
+        <div class="project">
+            <h3>AI Image Detection</h3>
+            <img src="https://assets.zenn.com/strapi_assets/ai_logo_generator_369f8d5d40.jpg" alt="AI Image Detection">
+            <p>created a tool to detect AI images.</p>
+            <p>
+             this project uses metadata and performs fourier transform to detect AI images. Which we made as a part of our project in college.
+            </p>
+        </div>
+        <div class="project">
+            <h3>Calculator</h3>
+            <img src="https://m.media-amazon.com/images/I/611slw6gynL._AC_UF1000,1000_QL80_.jpg" alt="Calculator">
+            <p>A simple calculator that performs basic arithmetic operations.</p>
+            <p>Click the buttons to perform calculations.</p>
+            <a href="portfolio/calculator.html">View Project</a>
+        </div>
+
+    </section>
+</body>
+</html>
