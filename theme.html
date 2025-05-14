@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sun & Moon Theme Animation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(5, 5, 5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      overflow: hidden;
+    }
+
+    .sky, .mountains, .moon, .sun,.bird-container, .birds, .stars {
+      display: none;
+    }
+
+    .sky {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #87CEEB, #217b97);
+      transition: background 1.5s ease-in-out, opacity 1s ease;
+      opacity: 0;
+    }
+
+    .mountains {
+      position: absolute;
+      bottom: -200px;
+      height: 550px;
+      width: 100%;
+      background: linear-gradient(to top, #14552f, #185f25);
+      clip-path: polygon(0 100%, 25% 50%, 50% 100%, 75% 50%, 100% 100%);
+      transition: all 1.5s ease-in-out;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .controlls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      color: #000;
+      cursor: pointer;
+      margin: 0.5rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .sun, .moon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: all 1.5s ease-in-out;
+      z-index: 1;
+    }
+
+    .sun {
+      background-color: yellow;
+      box-shadow: 0 0 30px 10px rgba(255, 223, 0, 0.6);
+    }
+
+    .moon {
+      background-color: #f0f0f0;
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6);
+    }
+
+    .sun-rise {
+      bottom: 60%;
+      left: 30%;
+      opacity: 1;
+    }
+
+    .sun-set {
+      bottom: -100px;
+      left: -100%;
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+
+    .moon-rise {
+      bottom: 60%;
+      left: 60%;
+      opacity: 1;
+    }
+
+    .moon-set {
+      bottom: -100px;
+      left: -100%;
+      opacity: 0;
+    }
+
+    .sky-show {
+      opacity: 1;
+    }
+
+    .mountains-rise {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: blink 2s infinite ease-in-out;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 0.2;
+        transform:scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform:scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="sky" class="sky"></div>
+  <div id="sun" class="sun"></div>
+  <div id="moon" class="moon"></div>
+  <div id="mountains" class="mountains"></div>
+  <div id="stars" class="stars"></div>
+
+  <div class="controlls">
+    <button id="briBtn">Bright</button>
+    <button id="darkBtn">Dark</button>
+  </div>
+
+  <script>
+    const sky = document.getElementById('sky');
+    const mountains = document.getElementById('mountains');
+    const sun = document.getElementById('sun');
+    const moon = document.getElementById('moon');
+    const starsContainer = document.getElementById('stars');
+    const briBtn = document.getElementById('briBtn');
+    const darkBtn = document.getElementById('darkBtn');
+
+    let initialized = false;
+
+    function createStars(count) {
+      starsContainer.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        starsContainer.appendChild(star);
+      }
+    }
+
+    function displayElements() {
+      if (!initialized) {
+        sky.style.display = 'flex';
+        mountains.style.display = 'block';
+        sun.style.display = 'block';
+        moon.style.display = 'block';
+        starsContainer.style.display = 'block';
+
+        // Animate
+        setTimeout(() => {
+          sky.classList.add('sky-show');
+          mountains.classList.add('mountains-rise');
+        }, 50);
+
+        initialized = true;
+      }
+    }
+
+    briBtn.addEventListener('click', () => {
+      displayElements();
+      sky.style.background = 'linear-gradient(to bottom, #87CEEB, #217b97)';
+      mountains.style.background = 'linear-gradient(to top, #14552f, #185f25)';
+      sun.classList.add('sun-rise');
+      sun.classList.remove('sun-set');
+      moon.classList.add('moon-set');
+      moon.classList.remove('moon-rise');
+      starsContainer.style.display = 'none';
+    });
+
+    darkBtn.addEventListener('click', () => {
+      displayElements();
+      sky.style.background = 'linear-gradient(to bottom, #2c3e50, #4ca1af)';
+      mountains.style.background = 'linear-gradient(to top, #2c3e50, #4ca1af)';
+      sun.classList.add('sun-set');
+      sun.classList.remove('sun-rise');
+      moon.classList.add('moon-rise');
+      moon.classList.remove('moon-set');
+      starsContainer.style.display = 'block';
+      createStars(100);
+    });
+  </script>
+</body>
+</html>
